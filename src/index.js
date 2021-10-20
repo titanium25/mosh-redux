@@ -1,12 +1,24 @@
 import configureStore from "../store/configureStore";
-import {bugAdded, bugResolved} from "../store/bugs";
+import {loadBugs} from "../store/bugs";
 
 const store = configureStore();
 
-store.dispatch(bugAdded({ description: "Bug 1"}));
-store.dispatch(bugAdded({ description: "Bug 2"}));
-store.dispatch(bugAdded({ description: "Bug 3"}));
+// API middleware
+// UI Layer
+store.dispatch(loadBugs());
 
-store.dispatch( bugResolved({ id: 1}));
+// setTimeout(() => store.)
 
-console.log(store.getState());
+// Dispatch functions
+// store.dispatch((dispatch, getState) => {
+// Call an API
+// When the promise is resolved => dispatch()
+// dispatch({type: 'bugsReceived', bugs: [1,2,3]})
+// If the promise is rejected => dispatch()
+// });
+
+// Toast API
+// store.dispatch({
+//     type: "error",
+//     payload: {message: "An error occurred."}
+// });
